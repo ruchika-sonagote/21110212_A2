@@ -1,9 +1,0 @@
-[submodule "redis-py"]
-	path = redis-py
-	url = https://github.com/redis/redis-py
-[submodule "chatgpt"]
-	path = chatgpt
-	url = https://github.com/acheong08/chatgpt
-[submodule "imgaug"]
-	path = imgaug
-	url = https://github.com/aleju/imgaug
