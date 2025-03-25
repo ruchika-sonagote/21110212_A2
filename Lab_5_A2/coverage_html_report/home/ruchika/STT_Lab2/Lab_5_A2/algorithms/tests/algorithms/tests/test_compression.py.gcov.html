@@ -1,0 +1,159 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>LCOV - coverage.lcov - home/ruchika/STT_Lab2/Lab_5_A2/algorithms/tests/algorithms/tests/test_compression.py</title>
+  <link rel="stylesheet" type="text/css" href="../../../../../../../../gcov.css">
+</head>
+
+<body>
+
+          <table width="100%" border=0 cellspacing=0 cellpadding=0>
+            <tr><td class="title">LCOV - code coverage report</td></tr>
+            <tr><td class="ruler"><img src="../../../../../../../../glass.png" width=3 height=3 alt=""></td></tr>
+
+            <tr>
+              <td width="100%">
+                <table cellpadding=1 border=0 width="100%">
+          <tr>
+            <td width="10%" class="headerItem">Current view:</td>
+            <td width="10%" class="headerValue"><a href="../../../../../../../../index.html">top level</a> - <a href="index.html">/home/ruchika/STT_Lab2/Lab_5_A2/algorithms/tests/algorithms/tests</a> - test_compression.py<span style="font-size: 80%;"> (source / <a href="test_compression.py.func-c.html">functions</a>)</span></td>
+            <td width="5%"></td>
+            <td width="5%"></td>
+            <td width="5%" class="headerCovTableHead">Coverage</td>
+            <td width="5%" class="headerCovTableHead" title="Covered + Uncovered code">Total</td>
+            <td width="5%" class="headerCovTableHead" title="Exercised code only">Hit</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Test:</td>
+            <td class="headerValue">coverage.lcov</td>
+            <td></td>
+            <td class="headerItem">Lines:</td>
+            <td class="headerCovTableEntryHi">97.9&nbsp;%</td>
+            <td class="headerCovTableEntry">48</td>
+            <td class="headerCovTableEntry">47</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Test Date:</td>
+            <td class="headerValue">2025-03-07 04:21:47</td>
+            <td></td>
+            <td class="headerItem">Functions:</td>
+            <td class="headerCovTableEntryHi">100.0&nbsp;%</td>
+            <td class="headerCovTableEntry">8</td>
+            <td class="headerCovTableEntry">8</td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td class="headerItem">Branches:</td>
+            <td class="headerCovTableEntryHi">-</td>
+            <td class="headerCovTableEntry">0</td>
+            <td class="headerCovTableEntry">0</td>
+          </tr>
+                  <tr><td><img src="../../../../../../../../glass.png" width=3 height=3 alt=""></td></tr>
+                </table>
+              </td>
+            </tr>
+
+            <tr><td class="ruler"><img src="../../../../../../../../glass.png" width=3 height=3 alt=""></td></tr>
+          </table>
+
+          <table cellpadding=0 cellspacing=0 border=0>
+            <tr>
+              <td><br></td>
+            </tr>
+            <tr>
+              <td>
+<pre class="sourceHeading">             Branch data     Line data    Source code</pre>
+<pre class="source">
+<span id="L1"><span class="lineNum">       1</span>                 :<span class="tlaGNC tlaBgGNC">           1 : from algorithms.compression.huffman_coding import HuffmanCoding</span></span>
+<span id="L2"><span class="lineNum">       2</span>                 :<span class="tlaGNC">           1 : from algorithms.compression.rle_compression import (decode_rle, encode_rle)</span></span>
+<span id="L3"><span class="lineNum">       3</span>                 :<span class="tlaGNC">           1 : from algorithms.compression.elias import (elias_gamma, elias_delta)</span></span>
+<span id="L4"><span class="lineNum">       4</span>                 :             : </span>
+<span id="L5"><span class="lineNum">       5</span>                 :<span class="tlaGNC">           1 : import unittest</span></span>
+<span id="L6"><span class="lineNum">       6</span>                 :             : </span>
+<span id="L7"><span class="lineNum">       7</span>                 :             : </span>
+<span id="L8"><span class="lineNum">       8</span>                 :<span class="tlaGNC">           1 : class TestHuffmanCoding(unittest.TestCase):</span></span>
+<span id="L9"><span class="lineNum">       9</span>                 :<span class="tlaGNC">           1 :     @classmethod</span></span>
+<span id="L10"><span class="lineNum">      10</span>                 :<span class="tlaGNC">           1 :     def setUpClass(cls):</span></span>
+<span id="L11"><span class="lineNum">      11</span>                 :<span class="tlaGNC">           1 :         cls.file_in_name = &quot;huffman_coding_in.txt&quot;</span></span>
+<span id="L12"><span class="lineNum">      12</span>                 :<span class="tlaGNC">           1 :         cls.file_out_bin_name = &quot;huffman_coding_out.bin&quot;</span></span>
+<span id="L13"><span class="lineNum">      13</span>                 :<span class="tlaGNC">           1 :         cls.file_out_name = &quot;huffman_coding_out.txt&quot;</span></span>
+<span id="L14"><span class="lineNum">      14</span>                 :             : </span>
+<span id="L15"><span class="lineNum">      15</span>                 :<span class="tlaGNC">           1 :     def setUp(self):</span></span>
+<span id="L16"><span class="lineNum">      16</span>                 :<span class="tlaGNC">           1 :         import random</span></span>
+<span id="L17"><span class="lineNum">      17</span>                 :<span class="tlaGNC">           1 :         random.seed(1951)</span></span>
+<span id="L18"><span class="lineNum">      18</span>                 :<span class="tlaGNC">           1 :         with open(self.file_in_name, &quot;wb&quot;) as file_in:</span></span>
+<span id="L19"><span class="lineNum">      19</span>                 :<span class="tlaGNC">           1 :             for i in range(10000):</span></span>
+<span id="L20"><span class="lineNum">      20</span>                 :<span class="tlaGNC">           1 :                 file_in.write(bytes([random.randrange(0, 256)]))</span></span>
+<span id="L21"><span class="lineNum">      21</span>                 :             : </span>
+<span id="L22"><span class="lineNum">      22</span>                 :<span class="tlaGNC">           1 :     def test_huffman_coding(self):</span></span>
+<span id="L23"><span class="lineNum">      23</span>                 :<span class="tlaGNC">           1 :         HuffmanCoding.encode_file(self.file_in_name, self.file_out_bin_name)</span></span>
+<span id="L24"><span class="lineNum">      24</span>                 :<span class="tlaGNC">           1 :         HuffmanCoding.decode_file(self.file_out_bin_name, self.file_out_name)</span></span>
+<span id="L25"><span class="lineNum">      25</span>                 :             : </span>
+<span id="L26"><span class="lineNum">      26</span>                 :<span class="tlaGNC">           1 :         with open(self.file_in_name, &quot;rb&quot;) as file_1, open(self.file_out_name, &quot;rb&quot;) as file_2:</span></span>
+<span id="L27"><span class="lineNum">      27</span>                 :<span class="tlaGNC">           1 :             content_1 = file_1.read()</span></span>
+<span id="L28"><span class="lineNum">      28</span>                 :<span class="tlaGNC">           1 :             content_2 = file_2.read()</span></span>
+<span id="L29"><span class="lineNum">      29</span>                 :             : </span>
+<span id="L30"><span class="lineNum">      30</span>                 :<span class="tlaGNC">           1 :             self.assertEqual(content_1, content_2)</span></span>
+<span id="L31"><span class="lineNum">      31</span>                 :             : </span>
+<span id="L32"><span class="lineNum">      32</span>                 :<span class="tlaGNC">           1 :     def tearDown(self):</span></span>
+<span id="L33"><span class="lineNum">      33</span>                 :<span class="tlaGNC">           1 :         import os</span></span>
+<span id="L34"><span class="lineNum">      34</span>                 :<span class="tlaGNC">           1 :         os.remove(self.file_in_name)</span></span>
+<span id="L35"><span class="lineNum">      35</span>                 :<span class="tlaGNC">           1 :         os.remove(self.file_out_bin_name)</span></span>
+<span id="L36"><span class="lineNum">      36</span>                 :<span class="tlaGNC">           1 :         os.remove(self.file_out_name)</span></span>
+<span id="L37"><span class="lineNum">      37</span>                 :             : </span>
+<span id="L38"><span class="lineNum">      38</span>                 :             : </span>
+<span id="L39"><span class="lineNum">      39</span>                 :<span class="tlaGNC">           1 : class TestRLECompression(unittest.TestCase):</span></span>
+<span id="L40"><span class="lineNum">      40</span>                 :             : </span>
+<span id="L41"><span class="lineNum">      41</span>                 :<span class="tlaGNC">           1 :     def test_encode_rle(self):</span></span>
+<span id="L42"><span class="lineNum">      42</span>                 :<span class="tlaGNC">           1 :         self.assertEqual('12W1B12W3B24W1B14W',</span></span>
+<span id="L43"><span class="lineNum">      43</span>                 :             :                          encode_rle('WWWWWWWWWWWWBWWWWWWWWWWWWBBBWWWWWWWWWWWWWWWWWWWWWWWWBWWWWWWWWWWWWWW'))</span>
+<span id="L44"><span class="lineNum">      44</span>                 :             : </span>
+<span id="L45"><span class="lineNum">      45</span>                 :<span class="tlaGNC">           1 :     def test_decode_rle(self):</span></span>
+<span id="L46"><span class="lineNum">      46</span>                 :<span class="tlaGNC">           1 :         self.assertEqual('WWWWWWWWWWWWBWWWWWWWWWWWWBBBWWWWWWWWWWWWWWWWWWWWWWWWBWWWWWWWWWWWWWW',</span></span>
+<span id="L47"><span class="lineNum">      47</span>                 :             :                          decode_rle('12W1B12W3B24W1B14W'))</span>
+<span id="L48"><span class="lineNum">      48</span>                 :             : </span>
+<span id="L49"><span class="lineNum">      49</span>                 :             : </span>
+<span id="L50"><span class="lineNum">      50</span>                 :<span class="tlaGNC">           1 : class TestEliasCoding(unittest.TestCase):</span></span>
+<span id="L51"><span class="lineNum">      51</span>                 :             : </span>
+<span id="L52"><span class="lineNum">      52</span>                 :<span class="tlaGNC">           1 :     def test_elias_gamma(self):</span></span>
+<span id="L53"><span class="lineNum">      53</span>                 :<span class="tlaGNC">           1 :         correct_result = ['0', '00', '100', '101', '11000', '11001', '11010',</span></span>
+<span id="L54"><span class="lineNum">      54</span>                 :             :                           '11011', '1110000', '1110001', '1110010']</span>
+<span id="L55"><span class="lineNum">      55</span>                 :             : </span>
+<span id="L56"><span class="lineNum">      56</span>                 :<span class="tlaGNC">           1 :         result = []</span></span>
+<span id="L57"><span class="lineNum">      57</span>                 :<span class="tlaGNC">           1 :         for i in range(11):</span></span>
+<span id="L58"><span class="lineNum">      58</span>                 :<span class="tlaGNC">           1 :             result.append(elias_gamma(i))</span></span>
+<span id="L59"><span class="lineNum">      59</span>                 :             : </span>
+<span id="L60"><span class="lineNum">      60</span>                 :<span class="tlaGNC">           1 :         self.assertEqual(correct_result, result)</span></span>
+<span id="L61"><span class="lineNum">      61</span>                 :             : </span>
+<span id="L62"><span class="lineNum">      62</span>                 :<span class="tlaGNC">           1 :     def test_elias_delta(self):</span></span>
+<span id="L63"><span class="lineNum">      63</span>                 :<span class="tlaGNC">           1 :         correct_result = ['0', '000', '1000', '1001', '10100', '10101',</span></span>
+<span id="L64"><span class="lineNum">      64</span>                 :             :                           '10110', '10111', '11000000', '11000001', '11000010']</span>
+<span id="L65"><span class="lineNum">      65</span>                 :             : </span>
+<span id="L66"><span class="lineNum">      66</span>                 :<span class="tlaGNC">           1 :         result = []</span></span>
+<span id="L67"><span class="lineNum">      67</span>                 :<span class="tlaGNC">           1 :         for i in range(11):</span></span>
+<span id="L68"><span class="lineNum">      68</span>                 :<span class="tlaGNC">           1 :             result.append(elias_delta(i))</span></span>
+<span id="L69"><span class="lineNum">      69</span>                 :             : </span>
+<span id="L70"><span class="lineNum">      70</span>                 :<span class="tlaGNC">           1 :         self.assertEqual(correct_result, result)</span></span>
+<span id="L71"><span class="lineNum">      71</span>                 :             : </span>
+<span id="L72"><span class="lineNum">      72</span>                 :             : </span>
+<span id="L73"><span class="lineNum">      73</span>                 :<span class="tlaGNC">           1 : if __name__ == &quot;__main__&quot;:</span></span>
+<span id="L74"><span class="lineNum">      74</span>                 :<span class="tlaUNC tlaBgUNC">           0 :     unittest.main()</span></span>
+        </pre>
+              </td>
+            </tr>
+          </table>
+          <br>
+
+          <table width="100%" border=0 cellspacing=0 cellpadding=0>
+            <tr><td class="ruler"><img src="../../../../../../../../glass.png" width=3 height=3 alt=""></td></tr>
+            <tr><td class="versionInfo">Generated by: <a href="https://github.com//linux-test-project/lcov" target="_parent">LCOV version 2.0-1</a></td></tr>
+          </table>
+          <br>
+
+</body>
+</html>

@@ -1,0 +1,1 @@
+genhtml -o coverage_html_report coverage.lcov --branch-coverage --function-coverage
